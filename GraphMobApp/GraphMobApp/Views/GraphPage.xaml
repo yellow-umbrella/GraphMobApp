@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             x:Class="GraphMobApp.Views.GraphPage"
+             Title="Graph">
+    <!-- Layout children vertically -->
+    <ScrollView HeightRequest="3000">
+    <StackLayout>
+        <Grid  ColumnDefinitions="*,*">
+            <Button Text="Save"
+                    Clicked="OnSaveButtonClicked" />
+            <Button Grid.Column="1"
+                    Text="Load"
+                    Clicked="OnLoadButtonClicked"/>
+        </Grid>
+
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Column="0" x:Name="VertexCount">
+                <Label HorizontalOptions="Center" BindingContext="{x:Reference stepperVertexCount}" Text="{Binding Value}" />
+                <Stepper Minimum="2" Maximum="10" Increment="1" x:Name="stepperVertexCount" ValueChanged="OnStepperValueChanged" />
+                <Label HorizontalOptions="Center">Number of vertices</Label>
+            </StackLayout>
+            <StackLayout Grid.Column="1" x:Name="StartVertex">
+                <Label HorizontalOptions="Center" BindingContext="{x:Reference stepperStartVertex}" Text="{Binding Value}" />
+                <Stepper BindingContext="{x:Reference stepperVertexCount}" Minimum="1" Maximum="{Binding Value}" x:Name="stepperStartVertex" Increment="1" />
+                <Label HorizontalOptions="Center">Start vertex</Label>
+            </StackLayout>
+            <StackLayout Grid.Column="2" x:Name="FinishVertex">
+                <Label HorizontalOptions="Center" BindingContext="{x:Reference stepperFinishVertex}" Text="{Binding Value}" />
+                <Stepper BindingContext="{x:Reference stepperVertexCount}" Minimum="1" Maximum="{Binding Value}" x:Name="stepperFinishVertex" Increment="1" />
+                <Label HorizontalOptions="Center">Finish vertex</Label>
+            </StackLayout>
+        </Grid>
+
+        <Grid  x:Name="graphGrid"/>
+
+        <Button 
+                Text="Find paths"
+                Clicked="OnFindPathsButtonClicked"/>
+
+        <Grid VerticalOptions="FillAndExpand">
+            <skia:SKCanvasView                
+                x:Name="CanvasView"
+                PaintSurface="OnCanvasViewPaintSurface"/>
+        </Grid>
+    </StackLayout>
+    </ScrollView>
+</ContentPage>
