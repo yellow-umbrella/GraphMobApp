@@ -28,12 +28,12 @@
             </StackLayout>
             <StackLayout Grid.Column="1" x:Name="StartVertex">
                 <Label HorizontalOptions="Center" BindingContext="{x:Reference stepperStartVertex}" Text="{Binding Value}" />
-                <Stepper BindingContext="{x:Reference stepperVertexCount}" Minimum="1" Maximum="{Binding Value}" x:Name="stepperStartVertex" Increment="1" />
+                    <Stepper BindingContext="{x:Reference stepperVertexCount}" Minimum="1" Maximum="{Binding Value}" x:Name="stepperStartVertex" Increment="1" ValueChanged="OnStartValueChanged"/>
                 <Label HorizontalOptions="Center">Start vertex</Label>
             </StackLayout>
             <StackLayout Grid.Column="2" x:Name="FinishVertex">
                 <Label HorizontalOptions="Center" BindingContext="{x:Reference stepperFinishVertex}" Text="{Binding Value}" />
-                <Stepper BindingContext="{x:Reference stepperVertexCount}" Minimum="1" Maximum="{Binding Value}" x:Name="stepperFinishVertex" Increment="1" />
+                    <Stepper BindingContext="{x:Reference stepperVertexCount}" Minimum="1" Maximum="{Binding Value}" x:Name="stepperFinishVertex" Increment="1" ValueChanged="OnFinishValueChanged"/>
                 <Label HorizontalOptions="Center">Finish vertex</Label>
             </StackLayout>
         </Grid>
@@ -42,7 +42,8 @@
 
         <Button 
                 Text="Find paths"
-                Clicked="OnFindPathsButtonClicked"/>
+                Clicked="OnFindPathsButtonClicked"
+                x:Name="pathButton"/>
 
         <Grid VerticalOptions="FillAndExpand">
             <skia:SKCanvasView                

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace GraphMobApp.Models
@@ -10,6 +11,7 @@ namespace GraphMobApp.Models
         {
             List<List<int>> result = new List<List<int>>();
             FindPaths(startVertex, finishVertex, new List<int>(), result, graph);
+            result.Sort((a, b) => a.Count - b.Count);
             return result;
         }
 
