@@ -43,6 +43,7 @@ namespace GraphMobApp.Views
         {
             graphData.VertexCount = (int)e.NewValue;
             CreateGraphGrid();
+            Update();
         }
         void OnStartValueChanged(object sender, ValueChangedEventArgs e)
         {
@@ -118,6 +119,9 @@ namespace GraphMobApp.Views
         private void Update()
         {
             ConvertGraph();
+            stepperVertexCount.Value = graphData.VertexCount;
+            stepperStartVertex.Value = graphData.StartVertex + 1;
+            stepperFinishVertex.Value = graphData.FinishVertex + 1;
             canShowPath = GraphAlgos.CheckForCycles(graphData.Graph); 
             if (!canShowPath)
             {

@@ -41,7 +41,7 @@
         <Grid  x:Name="graphGrid"/>
 
         <Button 
-                Text="Find paths"
+                Text="Next paths"
                 Clicked="OnFindPathsButtonClicked"
                 x:Name="pathButton"/>
 

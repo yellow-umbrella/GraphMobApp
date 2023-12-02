@@ -16,7 +16,7 @@
                       Icon="icon_feed.png"
                       ContentTemplate="{DataTemplate views:GraphPage}" />
         <ShellContent Title="About"
-                      Icon="about.png"
+                      Icon="icon_about.png"
                       ContentTemplate="{DataTemplate views:AboutPage}" />
         
     </TabBar>

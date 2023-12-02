@@ -5,10 +5,9 @@
              Title="About">
     <!-- Layout children in two rows -->
     <Grid RowDefinitions="Auto,*">
-        <Image Source="xamarin_logo.png"
-               BackgroundColor="{OnPlatform iOS=LightSlateGray, Android=#2196F3}"
+        <Image Source="my_photo.png"
                VerticalOptions="Center"
-               HeightRequest="64" />
+               HeightRequest="100" />
         <!-- Layout children vertically -->
         <StackLayout Grid.Row="1"
                      Margin="20"
@@ -17,16 +16,15 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <FormattedString.Spans>
-                            <Span Text="Notes"
+                            <Span Text="Finding path in directed acyclic graph"
                                   FontAttributes="Bold"
                                   FontSize="22" />
-                            <Span Text=" v1.0" />
                         </FormattedString.Spans>
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-            <Label Text="This app is written in XAML and C# with the Xamarin Platform." />
-            <Button Text="Learn more"
+            <Label Text="This app is written in XAML and C# with the Xamarin Platform by Niemkevych Daria." />
+            <Button Text="See code"
                     Clicked="OnButtonClicked" />
         </StackLayout>
     </Grid>
